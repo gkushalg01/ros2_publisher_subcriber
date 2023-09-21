@@ -17,15 +17,11 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 
-add_executable(talker src/pubsub.cpp)
-ament_target_dependencies(talker rclcpp std_msgs)
-
-add_executable(listener src/subpub.cpp)
-ament_target_dependencies(listener rclcpp std_msgs)
+add_executable(observer src/pubsub.cpp)
+ament_target_dependencies(observer rclcpp std_msgs)
 
 install(TARGETS
-  talker
-  listener
+  observer
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
